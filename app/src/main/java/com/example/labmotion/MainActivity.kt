@@ -13,15 +13,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var blankFrag: BlankFragment?= null
-        if (blankFrag == null) blankFrag =  BlankFragment.newInstance() // 如果 home fragment 還沒創建過，創建 fragment，
+        var homeFrag: HomeFragment?= null
 
+        // home
         supportFragmentManager.commit {
-            if (blankFrag.isAdded) { // 如果 home fragment 已經被 add 過，
-                show(blankFrag); // 顯示它。
-            } else { // 反之，
-                add(R.id.container_main, blankFrag, "BLANK"); // 使用 add 方法。
+            if (homeFrag == null) homeFrag =  HomeFragment.newInstance("","")
+            if (homeFrag!!.isAdded) {
+                show(homeFrag!!);
+            } else {
+                add(R.id.container_main, homeFrag!!, "HOME");
             }
+        }
+
+        // blank
+        supportFragmentManager.commit {
+            if (homeFrag != null && !homeFrag!!.isHidden) {
+//                hide(homeFrag!!);
+                addToBackStack("HOME");
+            }
+
+            val blankFrag= BlankFragment()
+            add(R.id.container_main, blankFrag, "BLANK"); // 使用 add 方法。
         }
     }
 }
