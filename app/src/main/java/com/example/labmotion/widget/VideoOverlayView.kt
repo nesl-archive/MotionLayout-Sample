@@ -1,6 +1,5 @@
 package com.example.labmotion.widget
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -17,7 +16,7 @@ class VideoOverlayView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private val motionLayout: MotionLayout =
-        LayoutInflater.from(context).inflate(R.layout.blank_fragment, this, false) as MotionLayout
+        LayoutInflater.from(context).inflate(R.layout.view_video_overlay, this, false) as MotionLayout
 
     private val touchableArea: View =  motionLayout
     private val clickableArea: View = motionLayout

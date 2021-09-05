@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.labmotion.widget.VideoOverlayView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/video_overlay"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_video_overlay"
+    app:motionDebug="SHOW_ALL"
+    tools:context=".BlankFragment">
+
+    <View
+        android:id="@+id/viewBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toTopOf="@id/videoViewContainer"
+        app:layout_constraintStart_toStartOf="@id/videoViewContainer"
+        app:layout_constraintEnd_toEndOf="@id/button"
+        app:layout_constraintBottom_toBottomOf="@id/recyclerView"/>
+
+    <ImageView
+        android:id="@+id/videoViewContainer"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/scrubs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@android:drawable/ic_menu_search"
+        app:layout_constraintBottom_toBottomOf="@+id/videoViewContainer"
+        app:layout_constraintStart_toEndOf="@+id/videoViewContainer"
+        app:layout_constraintTop_toTopOf="@+id/videoViewContainer" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/videoViewContainer" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

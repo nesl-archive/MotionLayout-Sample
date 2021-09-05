@@ -19,7 +19,7 @@ class BlankFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.view_video_overlay, container, false)
+        return inflater.inflate(R.layout.fragment_blank, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
