@@ -18,8 +18,8 @@ class VideoOverlayView @JvmOverloads constructor(
     private val motionLayout: MotionLayout =
         LayoutInflater.from(context).inflate(R.layout.view_video_overlay, this, false) as MotionLayout
 
-    private val touchableArea: View =  motionLayout
-    private val clickableArea: View = motionLayout
+    private val touchableArea: View =  motionLayout.findViewById(R.id.viewBackground)
+    private val clickableArea: View =motionLayout.findViewById(R.id.viewBackground)
 
     private var startX: Float? = null
     private var startY: Float? = null
